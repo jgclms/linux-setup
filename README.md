@@ -42,6 +42,26 @@ $ sudo pacman -Syu tree # ascii-tree ls
 
 ### miniconda
 also started minidconda:
-https://linoxide.com/linux-how-to/install-python-anaconda-5-arch-linux-4-11-7-1/
+(i) https://linoxide.com/linux-how-to/install-python-anaconda-5-arch-linux-4-11-7-1/
+
+```
 $ sudo pacman -Syu bzip2 wget
+$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+$ sudo pacman -Syu gtkhash
+$ gtkhash -f sha256 Miniconda3-latest-Linux-x86_64.sh 
+# paste the following (from download site, above) into 'check' value:
+#     bfe34e1fa28d6d75a7ad05fd02fa5472275673d5f5621b77380898dee1be15d2
+
+$ sudo su
+# sh sha256 Miniconda3-latest-Linux-x86_64.sh  # (ii)
+# exit
+$
+$ eval "$(/usr/local/miniconda/bin/conda shell.bash hook)"  # (iii) one time, tweaks ~/.bashrc
+$ conda create -n "python3.7" python=3.7 ipython
+```
+
+(ii) I ran the install as root, using the following from link (i) above:  
+Install location: `[/root/miniconda3] >>> /usr/local/miniconda/`  
+For everything else use the defaults, the `eval` (iii) plumbs things into `~/.bashrc`.
+
 
