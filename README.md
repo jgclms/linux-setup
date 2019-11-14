@@ -58,6 +58,18 @@ $ sudo su
 $
 $ eval "$(/usr/local/miniconda/bin/conda shell.bash hook)"  # (iii) one time, tweaks ~/.bashrc
 $ conda create -n "python3.7" python=3.7 ipython
+$ conda activate python3.7 # abridged prompt, just showing '$'.
+$ ipython
+Python 3.7.5 (default, Oct 25 2019, 15:51:11) 
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.9.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: import sys; sys.version                                                 
+Out[1]: '3.7.5 (default, Oct 25 2019, 15:51:11) \n[GCC 7.3.0]'
+
+In [2]: quit()                                                                  
+(python3.7) [jgreve@john-pc ~]$ conda deactivate # unabridged prompt
+(base) [jgreve@john-pc ~]$ 
 ```
 
 (ii) I ran the install as root, using the following from link (i) above:  
