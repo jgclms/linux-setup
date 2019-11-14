@@ -32,13 +32,13 @@ is based on arch-linux, and it uses Xfce by default.  torrent download: manjaro-
 
 Arch linux uses the *pacman* package manager, options `-S` synchronize, `-y` = `--refresh`, and `-u` = `--sysupgrade`.  (for details, try `$ pacman --help -S`).
 
-### tmux
-`$ sudo pacman -Syu tmux`
+### utilities
 
 ```
-# reload config
-bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
+$ sudo pacman -Syu tmux # see .tmux.conf
+$ sudo pacman -Syu tree # ascii-tree ls
 ```
+
 
 ### miniconda
 also started minidconda:
