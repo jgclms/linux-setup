@@ -76,4 +76,77 @@ In [2]: quit()
 Install location: `[/root/miniconda3] >>> /usr/local/miniconda/`  
 For everything else use the defaults, the `eval` (iii) plumbs things into `~/.bashrc`.
 
+### adding jupyter
 
+```
+(python3.7) [jgreve@john-pc ~]$ conda info
+
+     active environment : python3.7
+    active env location : /home/jgreve/.conda/envs/python3.7
+            shell level : 2
+       user config file : /home/jgreve/.condarc
+ populated config files : 
+          conda version : 4.7.12
+    conda-build version : not installed
+         python version : 3.7.4.final.0
+       virtual packages : 
+       base environment : /usr/local/miniconda  (read only)
+           channel URLs : https://repo.anaconda.com/pkgs/main/linux-64
+                          https://repo.anaconda.com/pkgs/main/noarch
+                          https://repo.anaconda.com/pkgs/r/linux-64
+                          https://repo.anaconda.com/pkgs/r/noarch
+          package cache : /usr/local/miniconda/pkgs
+                          /home/jgreve/.conda/pkgs
+(i)    envs directories : /home/jgreve/.conda/envs
+                          /usr/local/miniconda/envs
+               platform : linux-64
+             user-agent : conda/4.7.12 requests/2.22.0 CPython/3.7.4 Linux/5.3.11-1-MANJARO manjaro/18.1.3 glibc/2.30
+                UID:GID : 1000:1001
+             netrc file : None
+           offline mode : False
+(base) [jgreve@john-pc ~]$ conda activate python3.7 # from (i)
+(python3.7) [jgreve@john-pc ~]$ jupyter notebook
+bash: jupyter: command not found
+(python3.7) [jgreve@john-pc ~]$ conda install jupyter
+```
+Optional: to enable remote access (normally just `localhost`) 
+```
+(python3.7) [jgreve@john-pc ~]$ jupyter --help
+usage: jupyter [-h] [--version] [--config-dir] [--data-dir] [--runtime-dir] [--paths] [--json] [subcommand]
+Jupyter: Interactive Computing
+optional arguments:
+  -h, --help     show this help message and exit
+  ...etc...
+  --json         output paths as machine-readable json
+
+Available subcommands: bundlerextension console kernel kernelspec migrate nbconvert nbextension
+**notebook** qtconsole run serverextension troubleshoot trust
+(python3.7) [jgreve@john-pc ~]$ jupyter notebook --help
+The Jupyter HTML Notebook.  This launches a Tornado based HTML Notebook Server that serves up an
+HTML5/Javascript Notebook client.
+
+Subcommands are launched as `jupyter-notebook cmd [args]`. For information on
+using subcommand 'cmd', do: `jupyter-notebook cmd -h`.
+
+list     List currently running notebook servers.
+stop     Stop currently running notebook server for a given port
+password Set a password for the notebook server.
+..etc...
+```
+
+Setting a pw w/the password option will also enable remote access (thank you, https://hyunyoung2.github.io/2017/11/14/How_to_Access_Jupyter_Notebook_Remotely/ )
+
+```
+(python3.7) [jgreve@john-pc ~]$ jupyter notebook password
+Enter password: 
+Verify password: 
+[NotebookPasswordApp] Wrote hashed password to /home/jgreve/.jupyter/jupyter_notebook_config.json
+###  $ jupyter notebook –no-browser –ip=”your server IP Address” –port=8888
+(python3.7) [jgreve@john-pc ~]$ jupyter notebook --no-browser --ip=0.0.0.0 --port=8888
+[I 11:37:46.977 NotebookApp] Serving notebooks from local directory: /home/jgreve
+[I 11:37:46.977 NotebookApp] The Jupyter Notebook is running at:
+[I 11:37:46.977 NotebookApp] http://john-pc:8888/
+[I 11:37:46.977 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+```
+## todo
+https://pages.github.com/
