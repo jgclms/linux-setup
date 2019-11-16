@@ -150,3 +150,45 @@ Verify password:
 ```
 ## todo
 https://pages.github.com/
+
+
+# ipython config files (ipython 6.3+)  
+(i) [Config Files](https://ipython.readthedocs.io/en/stable/config/intro.html#setting-config)  
+(ii) [Terminal Interative Shell](https://ipython.readthedocs.io/en/stable/config/options/terminal.html#configtrait-TerminalInteractiveShell.editing_mode)  
+excerpt from (i):  
+To create the blank config files, run:  
+`  $ ipython profile create [profilename]`
+
+If you leave out the profile name, the files will be created for the default profile (see Profiles).
+These will typically be located in `~/.ipython/profile_default/`, and will be named `ipython_config.py`, `ipython_notebook_config.py`, etc. 
+
+
+[Markdown command workaround](https://stackoverflow.com/a/20885980/5590742), becuase 
+nobody designed comments into markdown. The following are comments (which you won't see
+in the rendered output).
+
+[//]: # (begin HTML copy from terminal; I'm disappointed colors don't come through markdown)
+
+```
+--- begin  diff ---
+(python3.7) [jgreve@john-pc profile_default]$ git diff ipython_config.py.sav ipython_config.py 
+diff --git a/ipython_config.py.sav b/ipython_config.py
+index 988ee5d..3acb619 100644
+--- a/ipython_config.py.sav
++++ b/ipython_config.py
+@@ -289,10 +289,11 @@
+ #c.TerminalInteractiveShell.display_completions = 'multicolumn'
+ 
+ ## Shortcut style to use at the prompt. 'vi' or 'emacs'.
+-#c.TerminalInteractiveShell.editing_mode = 'emacs'
++c.TerminalInteractiveShell.editing_mode = 'vi'
+ 
+ ## Set the editor used by IPython (default to $EDITOR/vi/notepad).
+ #c.TerminalInteractiveShell.editor = '/usr/bin/nano'
++c.TerminalInteractiveShell.editor = '/usr/bin/vim'
+ 
+ ## Allows to enable/disable the prompt toolkit history search
+ #c.TerminalInteractiveShell.enable_history_search = True
+(python3.7) [jgreve@john-pc profile_default]$ 
+--- end diff ---
+```
