@@ -151,7 +151,7 @@ Verify password:
 
 ### jupyter firewall setup from https://stackoverflow.com/a/24729895/5590742
 Used the following on CentOS7:
-See (**go_jupyter.sh**)[go_jupyter.sh] to kick off a headless jupyter, the idea is you'd connect to it from a host-based browerse.
+See [**go_jupyter.sh**](go_jupyter.sh) to kick off a headless jupyter, the idea is you'd connect to it from a host-based browerse.
 ```
      +-----------------------------------------------
      | # firewall-cmd --get-active-zones
