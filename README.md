@@ -38,6 +38,28 @@ Arch linux uses the *pacman* package manager, options `-S` synchronize, `-y` = `
 $ sudo pacman -Syu tmux # see .tmux.conf
 $ sudo pacman -Syu tree # ascii-tree ls
 ```
+### dircolor
+Sometimes `$ ls` shows directories in a dark blue on black that I find illegible.
+The following sets colors to yellow; there are notes in the `/etc/DIR_COLORS.256color` file
+explaining the format and a bash one-liner to iterate through available colours.
+
+
+```
+$ cp  /etc/DIR_COLORS.256color  .dir_colors
+$ diff  /etc/DIR_COLORS.256color  .dir_colors
+58c58,59
+< DIR 38;5;27   # directory
+---
+> # DIR 38;5;27 # directory - original, 38;5;$x is 256-bit color and for x=27 is blueish.
+> DIR 38;5;11   # directory - 11 is yellow
+```
+
+If you set up custom colors they need to be loaded into env-var LS_COLORS, which can be done in `.bashrc`:
+
+```
+$ tail -1 ~/.bashrc
+eval $(dircolors ~/.dir_colors) # https://unix.stackexchange.com/a/97556/386060 
+```
 
 
 ### miniconda
