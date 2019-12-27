@@ -148,6 +148,20 @@ Verify password:
 [I 11:37:46.977 NotebookApp] http://john-pc:8888/
 [I 11:37:46.977 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
 ```
+
+### jupyter firewall setup from https://stackoverflow.com/a/24729895/5590742
+Used the following on CentOS7:
+See (**go_jupyter.sh**)[go_jupyter.sh] to kick off a headless jupyter, the idea is you'd connect to it from a host-based browerse.
+```
+     +-----------------------------------------------
+     | # firewall-cmd --get-active-zones
+     | # firewall-cmd --zone=public --add-port=8888/tcp --permanent
+     | # firewall-cmd --reload
+     +-----------------------------------------------
+     | $ ./go_jupyter.sh
+     +-----------------------------------------------
+```
+
 ## todo
 https://pages.github.com/
 
