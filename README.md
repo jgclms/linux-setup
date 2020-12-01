@@ -1,5 +1,5 @@
 # linux-setup
-all the things I look up every time I build a new vm.
+Check list for setting up a new Linux guest.
 
 ### virtual box guest settings:
 
@@ -23,9 +23,21 @@ Storage -> Controller: SATA
 Network -> Adapter 1 = Bridged
 ```
 # Linux install media
+### ubuntu
+After creating guest additions normal users can see a mounted shared drive.
+
+    $ sudo usermod -a -G vboxsf $USER
+    
+Now log out to allow new process to reload `/etc/group`
+Or try the following (retrived 11/30/2020 from https://superuser.com/a/609141/685477 )
+
+    $ exec su -l $USER
+
 ### manjaro
-My first try with this light-weight distro, [manjaro](https://manjaro.org/get-manjaro/)
+My first (and maybe last\*) try with this light-weight distro, [manjaro](https://manjaro.org/get-manjaro/)
 is based on arch-linux, and it uses Xfce by default.  torrent download: manjaro-xfce-18.1.2-191028-linux53.iso
+
+**\* maybe last:** I ignored a manjaro guest for several months, when I came back to it the updates were out of synch (as in pacman has stopped workign) and it didn't seem worth the effort to untangle.
 
 *Guest Additions*: https://wiki.archlinux.org/index.php/VirtualBox#Install_the_Guest_Additions
 `$ sudo pacman -Syu virtualbox-guest-utils xf86-video-vmware`
